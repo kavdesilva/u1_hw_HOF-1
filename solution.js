@@ -18,8 +18,11 @@ function returnSums(nums) {
    */
   
   let sums = []
-  nums.forEach((n) => sums.push(n));
-  sums.forEach((n, index) => {n +=index})
+  nums.forEach((num, index) => {
+    num += index
+    index++
+    sums.push(num)
+  })
   return sums
 }
 
@@ -30,7 +33,7 @@ function returnTotal(objs) {
    * @param objs => [{n:1}]
    */
   let sum = 0;
-  objs.forEach(n => sum += n);
+  objs.forEach(obj => sum += obj.n);
   return sum;
 }
 
@@ -82,8 +85,8 @@ function joinStrings(strings) {
    * Using .reduce, return a new string containing each string from the strings array.
    */
   const newString = strings.reduce((accumulator, string) => {
-    return accumulator + string
-  }, 0)
+    return accumulator += string
+  }, '')
   return newString
 }
 
@@ -94,6 +97,10 @@ function sortObjectsByValue(objs) {
    * Using .sort, sort the array of objects by the value key in ascending order
    * .sort documentation https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
    */
+   const sortByValue = objs.sort((a, b) => {
+    return a.value - b.value
+  })
+  return sortByValue
 }
 
 module.exports = {
